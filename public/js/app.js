@@ -2037,6 +2037,64 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TabelaLista.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/TabelaLista.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "TabelaLista",
+  props: ['titulos', 'itens', 'criar', 'detalhe', 'editar', 'deletar', 'token'],
+  methods: {
+    executaDelete: function executaDelete(index) {
+      document.getElementById(index).submit();
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Topo.vue?vue&type=script&lang=js&":
 /*!***************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Topo.vue?vue&type=script&lang=js& ***!
@@ -38438,6 +38496,166 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TabelaLista.vue?vue&type=template&id=1d289183&scoped=true&":
+/*!**************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/TabelaLista.vue?vue&type=template&id=1d289183&scoped=true& ***!
+  \**************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "col-12" }, [
+    _vm.criar
+      ? _c("a", { attrs: { href: _vm.criar } }, [_vm._v("Criar")])
+      : _vm._e(),
+    _vm._v(" "),
+    _c("table", { staticClass: "table table-striped table-hover" }, [
+      _c("thead", [
+        _c(
+          "tr",
+          [
+            _vm._l(_vm.titulos, function(titulo) {
+              return _c("th", { attrs: { scope: "col" } }, [
+                _vm._v(_vm._s(titulo))
+              ])
+            }),
+            _vm._v(" "),
+            _vm.detalhe || _vm.editar || _vm.deletar
+              ? _c("th", { attrs: { scope: "col" } }, [_vm._v("Ações")])
+              : _vm._e()
+          ],
+          2
+        )
+      ]),
+      _vm._v(" "),
+      _c(
+        "tbody",
+        _vm._l(_vm.itens, function(item, itemId) {
+          return _c(
+            "tr",
+            [
+              _vm._l(item, function(row) {
+                return _c("td", [_vm._v(_vm._s(row))])
+              }),
+              _vm._v(" "),
+              _vm.detalhe || _vm.editar || _vm.deletar
+                ? _c("td", [
+                    _vm.deletar && _vm.token
+                      ? _c(
+                          "form",
+                          {
+                            attrs: {
+                              id: itemId,
+                              action: _vm.deletar,
+                              method: "post"
+                            }
+                          },
+                          [
+                            _c("input", {
+                              attrs: {
+                                type: "hidden",
+                                name: "_method",
+                                value: "DELETE"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("input", {
+                              attrs: { type: "hidden", name: "_token" },
+                              domProps: { value: _vm.token }
+                            }),
+                            _vm._v(" "),
+                            _vm.detalhe
+                              ? _c("a", { attrs: { href: _vm.detalhe } }, [
+                                  _vm._v("Detalhe |")
+                                ])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _vm.editar
+                              ? _c("a", { attrs: { href: _vm.editar } }, [
+                                  _vm._v("Editar |")
+                                ])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _vm.deletar
+                              ? _c(
+                                  "a",
+                                  {
+                                    attrs: { href: "#" },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.executaDelete(itemId)
+                                      }
+                                    }
+                                  },
+                                  [_vm._v("Deletar")]
+                                )
+                              : _vm._e()
+                          ]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    !_vm.token
+                      ? _c("span", [
+                          _vm.detalhe
+                            ? _c("a", { attrs: { href: _vm.detalhe } }, [
+                                _vm._v("Detalhe |")
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.editar
+                            ? _c("a", { attrs: { href: _vm.editar } }, [
+                                _vm._v("Editar |")
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.deletar
+                            ? _c("a", { attrs: { href: _vm.deletar } }, [
+                                _vm._v("Deletar")
+                              ])
+                            : _vm._e()
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.token && !_vm.deletar
+                      ? _c("span", [
+                          _vm.detalhe
+                            ? _c("a", { attrs: { href: _vm.detalhe } }, [
+                                _vm._v("Detalhe |")
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.editar
+                            ? _c("a", { attrs: { href: _vm.editar } }, [
+                                _vm._v("Editar |")
+                              ])
+                            : _vm._e()
+                        ])
+                      : _vm._e()
+                  ])
+                : _vm._e()
+            ],
+            2
+          )
+        }),
+        0
+      )
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Topo.vue?vue&type=template&id=6ade73a5&":
 /*!*******************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Topo.vue?vue&type=template&id=6ade73a5& ***!
@@ -50704,6 +50922,7 @@ Vue.component('topo', __webpack_require__(/*! ./components/Topo.vue */ "./resour
 Vue.component('painel', __webpack_require__(/*! ./components/Painel.vue */ "./resources/js/components/Painel.vue")["default"]);
 Vue.component('box', __webpack_require__(/*! ./components/Box.vue */ "./resources/js/components/Box.vue")["default"]);
 Vue.component('pagina', __webpack_require__(/*! ./components/Pagina.vue */ "./resources/js/components/Pagina.vue")["default"]);
+Vue.component('tabela-lista', __webpack_require__(/*! ./components/TabelaLista.vue */ "./resources/js/components/TabelaLista.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -51068,6 +51287,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Painel_vue_vue_type_template_id_dd690cb0___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Painel_vue_vue_type_template_id_dd690cb0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/TabelaLista.vue":
+/*!*************************************************!*\
+  !*** ./resources/js/components/TabelaLista.vue ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _TabelaLista_vue_vue_type_template_id_1d289183_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TabelaLista.vue?vue&type=template&id=1d289183&scoped=true& */ "./resources/js/components/TabelaLista.vue?vue&type=template&id=1d289183&scoped=true&");
+/* harmony import */ var _TabelaLista_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TabelaLista.vue?vue&type=script&lang=js& */ "./resources/js/components/TabelaLista.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _TabelaLista_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _TabelaLista_vue_vue_type_template_id_1d289183_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _TabelaLista_vue_vue_type_template_id_1d289183_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "1d289183",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/TabelaLista.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/TabelaLista.vue?vue&type=script&lang=js&":
+/*!**************************************************************************!*\
+  !*** ./resources/js/components/TabelaLista.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TabelaLista_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./TabelaLista.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TabelaLista.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TabelaLista_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/TabelaLista.vue?vue&type=template&id=1d289183&scoped=true&":
+/*!********************************************************************************************!*\
+  !*** ./resources/js/components/TabelaLista.vue?vue&type=template&id=1d289183&scoped=true& ***!
+  \********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TabelaLista_vue_vue_type_template_id_1d289183_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./TabelaLista.vue?vue&type=template&id=1d289183&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TabelaLista.vue?vue&type=template&id=1d289183&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TabelaLista_vue_vue_type_template_id_1d289183_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TabelaLista_vue_vue_type_template_id_1d289183_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

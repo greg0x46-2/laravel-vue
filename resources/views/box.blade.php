@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    <pagina tamanho="1">
+    <pagina tamanho="10">
         <painel titulo="Dashboard">
             <div class="row">
                 <div class="col-4">
-                    <box titulo="Artigos" indicador="1.500" cor="#4169E1" icone="far fa-newspaper" url="{{'/'}}">
+                    <box titulo="Artigos" indicador="1.500" cor="#4169E1" icone="far fa-newspaper" url="{{route('artigos.index')}}">
 
                     </box>
                 </div>

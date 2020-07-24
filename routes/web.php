@@ -27,3 +27,9 @@ Route::get('/box', function () {
     return view('box');
 });
 
+Route::middleware(['auth'])
+    ->prefix('admin')
+    ->namespace('Admin')
+    ->group(function (){
+    Route::resource('artigos', 'ArtigosController');
+});
