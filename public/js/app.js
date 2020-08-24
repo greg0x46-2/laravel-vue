@@ -2083,12 +2083,76 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "TabelaLista",
-  props: ['titulos', 'itens', 'criar', 'detalhe', 'editar', 'deletar', 'token'],
+  props: ['titulos', 'itens', 'ordem', 'ordemcol', 'criar', 'detalhe', 'editar', 'deletar', 'token'],
+  data: function data() {
+    return {
+      buscar: '',
+      ordemAux: this.ordem || 'asc',
+      ordemAuxCol: this.ordemcol || 0
+    };
+  },
   methods: {
     executaDelete: function executaDelete(index) {
       document.getElementById(index).submit();
+    },
+    ordenaColuna: function ordenaColuna(coluna) {
+      this.ordemAuxCol = coluna;
+
+      if (this.ordemAux.toLowerCase() == 'asc') {
+        this.ordemAux = 'desc';
+      } else {
+        this.ordemAux = 'asc';
+      }
+    }
+  },
+  computed: {
+    lista: function lista() {
+      var _this = this;
+
+      var ordem = this.ordemAux || 'asc';
+      var ordemCol = this.ordemAuxCol || 0;
+      ordemCol = parseInt(ordemCol);
+
+      if (ordem.toLowerCase() == 'asc') {
+        this.itens.sort(function (a, b) {
+          if (a[ordemCol] > b[ordemCol]) {
+            return 1;
+          }
+
+          if (a[ordemCol] < b[ordemCol]) {
+            return -1;
+          }
+
+          return 0;
+        });
+      } else {
+        this.itens.sort(function (a, b) {
+          if (a[ordemCol] < b[ordemCol]) {
+            return 1;
+          }
+
+          if (a[ordemCol] > b[ordemCol]) {
+            return -1;
+          }
+
+          return 0;
+        });
+      }
+
+      return this.itens.filter(function (res) {
+        for (var k = 0; k < res.length; k++) {
+          if ((res[k] + "").toLowerCase().indexOf(_this.buscar.toLowerCase()) >= 0) {
+            return true;
+          }
+        }
+      });
     }
   }
 });
@@ -38512,19 +38576,55 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "col-12" }, [
-    _vm.criar
-      ? _c("a", { attrs: { href: _vm.criar } }, [_vm._v("Criar")])
-      : _vm._e(),
+    _c("div", { staticClass: "col" }, [
+      _vm.criar
+        ? _c("a", { attrs: { href: _vm.criar } }, [_vm._v("Criar")])
+        : _vm._e(),
+      _vm._v(" "),
+      _c("div", { staticClass: "float-right" }, [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.buscar,
+              expression: "buscar"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: { type: "search", placeholder: "Buscar" },
+          domProps: { value: _vm.buscar },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.buscar = $event.target.value
+            }
+          }
+        })
+      ])
+    ]),
     _vm._v(" "),
     _c("table", { staticClass: "table table-striped table-hover" }, [
       _c("thead", [
         _c(
           "tr",
           [
-            _vm._l(_vm.titulos, function(titulo) {
-              return _c("th", { attrs: { scope: "col" } }, [
-                _vm._v(_vm._s(titulo))
-              ])
+            _vm._l(_vm.titulos, function(titulo, index) {
+              return _c(
+                "th",
+                {
+                  staticStyle: { cursor: "pointer" },
+                  attrs: { scope: "col" },
+                  on: {
+                    click: function($event) {
+                      return _vm.ordenaColuna(index)
+                    }
+                  }
+                },
+                [_vm._v(_vm._s(titulo))]
+              )
             }),
             _vm._v(" "),
             _vm.detalhe || _vm.editar || _vm.deletar
@@ -38537,7 +38637,7 @@ var render = function() {
       _vm._v(" "),
       _c(
         "tbody",
-        _vm._l(_vm.itens, function(item, itemId) {
+        _vm._l(_vm.lista, function(item, itemId) {
           return _c(
             "tr",
             [
@@ -51448,8 +51548,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /var/www/laravel-vue/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /var/www/laravel-vue/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Greg\Desktop\Projects\laravel-vue\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Greg\Desktop\Projects\laravel-vue\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

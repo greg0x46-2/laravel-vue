@@ -27,9 +27,16 @@ Route::get('/box', function () {
     return view('box');
 });
 
-Route::middleware(['auth'])
+Route::middleware([])
     ->prefix('admin')
     ->namespace('Admin')
     ->group(function (){
-    Route::resource('artigos', 'ArtigosController');
-});
+        Route::resource('artigos', 'ArtigosController');
+    });
+
+//Route::middleware(['auth'])
+//    ->prefix('admin')
+//    ->namespace('Admin')
+//    ->group(function (){
+//    Route::resource('artigos', 'ArtigosController');
+//});
